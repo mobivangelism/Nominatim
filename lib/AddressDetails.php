@@ -89,7 +89,6 @@ class AddressDetails
                 $sTypeLabel = str_replace(' ', '_', $sTypeLabel);
                 if (!isset($aAddress[$sTypeLabel])
                     || isset($aFallback[$sTypeLabel])
-//                    || $aLine['class'] == 'place'
                 ) {
                     $aAddress[$sTypeLabel] = $sName;
                     if ($bFallback) {
