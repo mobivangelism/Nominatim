@@ -65,7 +65,7 @@ class AddressDetails
         $aFallback = array();
 
         foreach ($this->aAddressLines as $aLine) {
-            if (!self::isAddress($aLine)) {
+            if (!self::isAddress($aLine))) {
                 continue;
             }
 
@@ -89,7 +89,7 @@ class AddressDetails
                 $sTypeLabel = str_replace(' ', '_', $sTypeLabel);
                 if (!isset($aAddress[$sTypeLabel])
                     || isset($aFallback[$sTypeLabel])
-                    || $aLine['class'] == 'place'
+//                    || $aLine['class'] == 'place'
                 ) {
                     $aAddress[$sTypeLabel] = $sName;
                     if ($bFallback) {
