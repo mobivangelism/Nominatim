@@ -24,7 +24,7 @@ class AddressDetails
         $sSQL = 'SELECT *,';
         $sSQL .= ' get_name_by_language(name,'.$mLangPref.') as localname';
         $sSQL .= ' FROM get_addressdata('.$iPlaceID.','.$sHousenumber.')';
-        $sSQL .= ' ORDER BY rank_address DESC, isaddress DESC';
+        $sSQL .= ' ORDER BY rank_address DESC, isaddress DESC, distance ASC';
 
         $this->aAddressLines = chksql($oDB->getAll($sSQL));
     }
