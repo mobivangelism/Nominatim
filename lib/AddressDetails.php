@@ -31,7 +31,7 @@ class AddressDetails
 
     private static function isAddress($aLine)
     {
-        $validTypes = ['country_code', 'town', 'suburb'];
+        $validTypes = ['country_code', 'town', 'suburb', 'village'];
         return $aLine['isaddress'] == 't' || in_array($aLine['type'], $validTypes);
     }
 
