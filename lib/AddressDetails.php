@@ -50,7 +50,7 @@ class AddressDetails
         $sPrevResult = '';
 
         foreach ($this->aAddressLines as $aLine) {
-            if ($aLine['isaddress'] == 't' && $sPrevResult != $aLine['localname']) {
+            if (self::isAddress($aLine) && $sPrevResult != $aLine['localname']) {
                 $sPrevResult = $aLine['localname'];
                 $aParts[] = $sPrevResult;
             }
