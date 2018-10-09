@@ -24,15 +24,15 @@ class AddressDetails
         $sSQL = 'SELECT *,';
         $sSQL .= ' get_name_by_language(name,'.$mLangPref.') as localname';
         $sSQL .= ' FROM get_addressdata('.$iPlaceID.','.$sHousenumber.')';
-        $sSQL .= ' ORDER BY rank_address DESC, isaddress DESC';
+        $sSQL .= ' ORDER BY rank_address DESC, distance ASC, isaddress DESC';
 
         $this->aAddressLines = chksql($oDB->getAll($sSQL));
-        print_r($this->aAddressLines);
     }
 
     private static function isAddress($aLine)
     {
-        return $aLine['isaddress'] == 't' || $aLine['type'] == 'country_code';
+        $validTypes = ['country_code', 'town', 'suburb'];
+        return $aLine['isaddress'] == 't' || in_array($aLine['type'], $validTypes);
     }
 
     public function getAddressDetails($bAll = false)
